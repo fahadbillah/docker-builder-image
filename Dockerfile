@@ -17,19 +17,9 @@ RUN apt-get update && \
     lynx-cur \
     php-xml \
     zip \
-    unzip
-
+    unzip 
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN composer require symfony/symfony
-RUN composer require squizlabs/php_codesniffer
-RUN composer require phpmd/phpmd
-RUN composer require phploc/phploc
-RUN composer require sebastian/phpcpd
-RUN composer require robmorgan/phinx
-RUN composer require phpdocumentor/phpdocumentor
-# RUN composer global 
 
 # Enable apache mods.
 RUN a2enmod php7.0
@@ -48,19 +38,6 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 # Expose apache.
 EXPOSE 80
-
-
-
-
-
-
-
-
-# Copy this repo into place.
-# ADD app /var/www/html/
-
-# Update the default apache site with the config we created.
-# ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
 # By default start up apache in the foreground, override with /bin/bash for interative.
 CMD /usr/sbin/apache2ctl -D FOREGROUND
