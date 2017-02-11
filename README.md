@@ -1,16 +1,24 @@
-### Docker PHP builder image
+### Docker Automation & Builder Image
 
 
 Run following code to build image
-`docker build -t php_builder_image .`
+```
+docker build -t automation_builder_image .
+```
 
 After building image run following command to run container
-`docker run --name php_builder -d -v path/to/your/project/directory:/var/www/html -p 8181:80 php_builder_image`
+``` 
+docker run --name automation_builder_container -d -v path/to/your/project/directory:/var/www/html -t -p 8080:80 automation_builder_image
+```
 
-if **8181** port not available use any other available port
+if **8080** port not available use any other available port
 
-While *php_builder* container is running run following code to ssh into container
-`docker exec -i -t php_builder /bin/bash`
+While *automation_builder_container* container is running run following code to ssh into container
+```
+docker exec -i -t automation_builder_container /bin/bash
+```
 
-If *php_builder* container is not running run following command to start it
-`docker start php_builder`
+If *automation_builder_container* container is not running run following command to start it
+```
+docker start automation_builder_container
+```
