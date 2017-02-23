@@ -25,6 +25,6 @@ RUN apt-get install -y npm
 RUN ln -s /usr/bin/nodejs /usr/bin/node  
 
 RUN node -v && npm -v
-RUN npm install -g bower grunt grunt-cli  
+RUN npm install -g bower grunt grunt-cli gulp-cli
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
